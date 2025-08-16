@@ -1,0 +1,11 @@
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/bin/Debug/net8.0/FitFalTracker.Domain.deps.json
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/bin/Debug/net8.0/FitFalTracker.Domain.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/bin/Debug/net8.0/FitFalTracker.Domain.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.AssemblyInfoInputs.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.AssemblyInfo.cs
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.csproj.CoreCompileInputs.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/refint/FitFalTracker.Domain.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/ref/FitFalTracker.Domain.dll

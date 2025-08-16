@@ -1,0 +1,17 @@
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/bin/Debug/net8.0/FitFalTracker.Persistance.deps.json
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/bin/Debug/net8.0/FitFalTracker.Persistance.runtimeconfig.json
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/bin/Debug/net8.0/FitFalTracker.Persistance.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/bin/Debug/net8.0/FitFalTracker.Persistance.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/bin/Debug/net8.0/FitFalTracker.Domain.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/bin/Debug/net8.0/FitFalTracker.Domain.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.csproj.AssemblyReference.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.AssemblyInfoInputs.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.AssemblyInfo.cs
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.csproj.CoreCompileInputs.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.csproj.CopyComplete
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/refint/FitFalTracker.Persistance.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.genruntimeconfig.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/ref/FitFalTracker.Persistance.dll

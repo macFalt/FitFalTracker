@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "9CfY9I1yihg=",
+  "success": true,
+  "projectFilePath": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Infrestructure/FitFalTracker.Infrestructure.csproj",
+  "expectedPackageFiles": [
+    "/Users/macbook/.nuget/packages/microsoft.extensions.configuration/8.0.0/microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
