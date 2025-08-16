@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gY1QE1wnqODRsFxUS0WJovT2t3bqHsy1bkqwnGCnv0s=",
+  "Source": "FitFalTracker.Api",
+  "BasePath": "_content/FitFalTracker.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
