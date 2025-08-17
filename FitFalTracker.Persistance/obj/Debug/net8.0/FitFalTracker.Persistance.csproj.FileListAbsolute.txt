@@ -15,3 +15,4 @@
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.pdb
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.genruntimeconfig.cache
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/ref/FitFalTracker.Persistance.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/Debug/net8.0/FitFalTracker.Persistance.sourcelink.json

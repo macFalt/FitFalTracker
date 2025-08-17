@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using FitFalTracker.Domain.ValueObjects;
 
 namespace FitFalTracker.Domain.Entities;
@@ -12,8 +13,9 @@ public class ExerciseDetail
     public string Tempo { get; set; }
     public Weight Weight { get; set; }
     
-
-    public Exercise Exercise { get; set; }
+    [JsonIgnore]public Exercise? Exercise { get; set; }
     public int ExerciseId { get; set; }
+    
+    
 
 }

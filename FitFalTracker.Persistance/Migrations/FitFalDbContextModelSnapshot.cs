@@ -152,7 +152,7 @@ namespace FitFalTracker.Persistance.Migrations
 
                     b.HasIndex("ExerciseId");
 
-                    b.ToTable("ExerciseDetail");
+                    b.ToTable("ExerciseDetails");
                 });
 
             modelBuilder.Entity("FitFalTracker.Domain.Entities.Workout", b =>
@@ -282,7 +282,7 @@ namespace FitFalTracker.Persistance.Migrations
 
                             b1.HasKey("ExerciseDetailId");
 
-                            b1.ToTable("ExerciseDetail");
+                            b1.ToTable("ExerciseDetails");
 
                             b1.WithOwner()
                                 .HasForeignKey("ExerciseDetailId");

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace FitFalTracker.Domain.Entities;
 
 public class Workout
@@ -8,6 +10,6 @@ public class Workout
 
     public string  Name { get; set; }
 
-    public ICollection<Exercise> Exercises { get; set; } = new List<Exercise>();
+    [JsonIgnore] public ICollection<Exercise> Exercises { get; set; } = new List<Exercise>();
     
 }

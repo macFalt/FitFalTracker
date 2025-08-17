@@ -9,3 +9,4 @@
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/refint/FitFalTracker.Domain.dll
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.pdb
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/ref/FitFalTracker.Domain.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/obj/Debug/net8.0/FitFalTracker.Domain.sourcelink.json

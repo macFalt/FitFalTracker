@@ -18,6 +18,7 @@ public class FitFalDbContext : DbContext
     public DbSet<Workout> Workouts { get; set; }
     public DbSet<Exercise> Exercises { get; set; }
     public DbSet<ExerciseDefinition> ExerciseDefinitions { get; set; }
+    public DbSet<ExerciseDetail> ExerciseDetails { get; set; }
     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
