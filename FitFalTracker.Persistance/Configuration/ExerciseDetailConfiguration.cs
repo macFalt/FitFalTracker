@@ -16,6 +16,7 @@ public class ExerciseDetailConfiguration : IEntityTypeConfiguration<ExerciseDeta
 
             w.Property(p => p.WeightEnum)
                 .HasColumnName("WeightEnum")
+                .HasConversion<string>()
                 .IsRequired();
         });
     }

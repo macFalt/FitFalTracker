@@ -14,7 +14,7 @@ public class ExerciseDetail
     public Weight Weight { get; set; }
     
     [JsonIgnore]public Exercise? Exercise { get; set; }
-    public int ExerciseId { get; set; }
+    [JsonIgnore]public int ExerciseId { get; set; }
     
     
 

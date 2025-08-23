@@ -276,8 +276,9 @@ namespace FitFalTracker.Persistance.Migrations
                                 .HasColumnType("decimal(18,2)")
                                 .HasColumnName("Weight");
 
-                            b1.Property<int>("WeightEnum")
-                                .HasColumnType("int")
+                            b1.Property<string>("WeightEnum")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
                                 .HasColumnName("WeightEnum");
 
                             b1.HasKey("ExerciseDetailId");
