@@ -1,4 +1,5 @@
 using System.Reflection;
+using FitFalTracker.Application.Common.Interfaces;
 using FitFalTracker.Domain.Common;
 using FitFalTracker.Domain.Entities;
 using FitFalTracker.Domain.ValueObjects;
@@ -7,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FitFalTracker.Persistance;
 
-public class FitFalDbContext : DbContext
+public class FitFalDbContext : DbContext, IFitFalDbContext
 {
     public FitFalDbContext(DbContextOptions<FitFalDbContext> options) : base(options)
     {

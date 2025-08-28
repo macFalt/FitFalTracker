@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FitFalTracker.Application\FitFalTracker.Application.csproj" />
       <ProjectReference Include="..\FitFalTracker.Domain\FitFalTracker.Domain.csproj" />
     </ItemGroup>
 
