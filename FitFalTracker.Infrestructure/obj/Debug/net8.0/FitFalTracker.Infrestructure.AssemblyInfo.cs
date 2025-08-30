@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FitFalTracker.Infrestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc4a7c76d5d629cb7cad9eaeeae0aa3ab5fa4502")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fc19dce018acdb0240cc80568a0eac7decc030e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FitFalTracker.Infrestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FitFalTracker.Infrestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

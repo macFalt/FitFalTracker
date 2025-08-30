@@ -1,0 +1,16 @@
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/bin/Debug/net8.0/FitFalTracker.Application.deps.json
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/bin/Debug/net8.0/FitFalTracker.Application.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/bin/Debug/net8.0/FitFalTracker.Application.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/bin/Debug/net8.0/FitFalTracker.Domain.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/bin/Debug/net8.0/FitFalTracker.Domain.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.csproj.AssemblyReference.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.AssemblyInfoInputs.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.AssemblyInfo.cs
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.csproj.CoreCompileInputs.cache
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.sourcelink.json
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.csproj.CopyComplete
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/refint/FitFalTracker.Application.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/FitFalTracker.Application.pdb
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/obj/Debug/net8.0/ref/FitFalTracker.Application.dll
