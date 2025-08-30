@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FitFalTracker.Common")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a978f1a98b7e7bab46243282109bb06d7612775")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86a32832cf8cb3c4107737447c27aef690ab574a")]
 [assembly: System.Reflection.AssemblyProductAttribute("FitFalTracker.Common")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FitFalTracker.Common")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
