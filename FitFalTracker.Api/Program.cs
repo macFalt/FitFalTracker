@@ -1,3 +1,4 @@
+using FitFalTracker.Application;
 using FitFalTracker.Persistance;
 using Microsoft.Extensions.Configuration;
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddApplication();
 builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddControllers();
 
@@ -70,3 +72,6 @@ app.Run();
 //     })
 //     .WithName("GetWeatherForecast")
 //     .WithOpenApi();
+
+
+//Dodac fluentvalidation. Wrocic do lekcji kursu

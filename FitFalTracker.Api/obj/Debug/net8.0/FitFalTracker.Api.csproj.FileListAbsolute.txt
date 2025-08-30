@@ -82,3 +82,11 @@
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/obj/Debug/net8.0/FitFalTracker.Api.pdb
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/obj/Debug/net8.0/FitFalTracker.Api.genruntimeconfig.cache
 /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/obj/Debug/net8.0/ref/FitFalTracker.Api.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/obj/Debug/net8.0/FitFalTracker.Api.sourcelink.json
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/AutoMapper.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/MediatR.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/MediatR.Contracts.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/MediatR.Extensions.Microsoft.DependencyInjection.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/FitFalTracker.Application.dll
+/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Api/bin/Debug/net8.0/FitFalTracker.Application.pdb
