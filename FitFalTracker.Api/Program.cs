@@ -74,4 +74,5 @@ app.Run();
 //     .WithOpenApi();
 
 
-//Dodac fluentvalidation. Wrocic do lekcji kursu
+//Dodac fluentvalidation. Wrocic do lekcji kursu. 
+// test
