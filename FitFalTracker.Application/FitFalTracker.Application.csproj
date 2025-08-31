@@ -18,8 +18,4 @@
       <ProjectReference Include="..\FitFalTracker.Domain\FitFalTracker.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\Behaviours\" />
-    </ItemGroup>
-
 </Project>

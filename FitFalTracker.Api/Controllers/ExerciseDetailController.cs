@@ -1,4 +1,5 @@
 using FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
+using FitFalTracker.Application.Exercises.Queries.GetAllExerciseDetails;
 using FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 using FitFalTracker.Domain.Entities;
 using FitFalTracker.Persistance;
@@ -28,6 +29,15 @@ public class ExerciseDetailController : BaseController
         cedc.ExerciseId = exerciseId;
         var id = await Mediator.Send(cedc);
         return CreatedAtAction(nameof(GetExerciseDetails), new { id }, id);
+    }
+
+    [HttpGet("allExerciseDetail/{exerciseId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<AllExerciseDetailForExerciseVm>> GetAllExerciseDetails([FromRoute]int exerciseId)
+    {
+        var allExercisesDetails = await Mediator.Send(new GetAllExerciseDetailForExerciseQuery(){ExerciseId = exerciseId});
+        return allExercisesDetails;
     }
     
 }
