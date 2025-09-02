@@ -1,4 +1,5 @@
 using FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
+using FitFalTracker.Application.Exercises.Command.DeleteExerciseDetail;
 using FitFalTracker.Application.Exercises.Queries.GetAllExerciseDetails;
 using FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 using FitFalTracker.Domain.Entities;
@@ -38,6 +39,15 @@ public class ExerciseDetailController : BaseController
     {
         var allExercisesDetails = await Mediator.Send(new GetAllExerciseDetailForExerciseQuery(){ExerciseId = exerciseId});
         return allExercisesDetails;
+    }
+
+    [HttpDelete("{exerciseId}/details/{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> DeleteExerciseDetail(int id, int exerciseId)
+    { 
+        var deleted = await Mediator.Send(new DeleteExerciseDetailCommand() { ExerciseDetailId = id , ExerciseId = exerciseId});
+        return deleted ? NoContent() : NotFound();
     }
     
 }
