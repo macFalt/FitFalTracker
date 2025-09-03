@@ -38,4 +38,3 @@ public class GetAllExerciseForWorkoutQueryHandler : IRequestHandler<GetAllExerci
 
 
 
-//Sprawdzic czy dziala. Dodac do kontrolera.
