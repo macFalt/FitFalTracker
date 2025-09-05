@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u4wmvhvBdJg=",
+  "dgSpecHash": "45SwB6QzAco=",
   "success": true,
-  "projectFilePath": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/FitFalTracker.Domain.csproj",
+  "projectFilePath": "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Domain/FitFalTracker.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

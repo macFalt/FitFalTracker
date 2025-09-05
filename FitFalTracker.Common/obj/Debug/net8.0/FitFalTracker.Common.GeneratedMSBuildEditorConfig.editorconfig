@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FitFalTracker.Common
-build_property.ProjectDir = /Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Common/
+build_property.ProjectDir = /home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Common/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -4544,19 +4544,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/macbook/.nuget/packages/": {}
+    "/home/macfal/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/FitFalTracker.Persistance.csproj",
+      "projectUniqueName": "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Persistance/FitFalTracker.Persistance.csproj",
       "projectName": "FitFalTracker.Persistance",
-      "projectPath": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/FitFalTracker.Persistance.csproj",
-      "packagesPath": "/Users/macbook/.nuget/packages/",
-      "outputPath": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/",
+      "projectPath": "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Persistance/FitFalTracker.Persistance.csproj",
+      "packagesPath": "/home/macfal/.nuget/packages/",
+      "outputPath": "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Persistance/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/macbook/.nuget/NuGet/NuGet.Config"
+        "/home/macfal/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -4568,11 +4568,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/FitFalTracker.Application.csproj": {
-              "projectPath": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Application/FitFalTracker.Application.csproj"
+            "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Application/FitFalTracker.Application.csproj": {
+              "projectPath": "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Application/FitFalTracker.Application.csproj"
             },
-            "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/FitFalTracker.Domain.csproj": {
-              "projectPath": "/Users/macbook/RiderProjects/FitFalTracker/FitFalTracker.Domain/FitFalTracker.Domain.csproj"
+            "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Domain/FitFalTracker.Domain.csproj": {
+              "projectPath": "/home/macfal/RiderProjects/FitFalTracker/FitFalTracker.Domain/FitFalTracker.Domain.csproj"
             }
           }
         }
@@ -4581,6 +4581,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4632,7 +4637,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.119/libexec/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/macfal/dotnet/sdk/8.0.413/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
