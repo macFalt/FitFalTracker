@@ -2,7 +2,7 @@ using MediatR;
 
 namespace FitFalTracker.Application.Workout.Command.DeleteWorkout;
 
-public class DeleteWorkoutCommand : IRequest<bool>
+public record DeleteWorkoutCommand : IRequest<Unit>
 {
-    public int WorkoutId { get; set; }
+    public int WorkoutId { get; init; }
 }

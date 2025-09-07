@@ -3,13 +3,13 @@ using FitFalTracker.Application.Common.Mappings;
 
 namespace FitFalTracker.Application.Workout.Queries.GetWorkout;
 
-public class WorkoutVm : IMapFrom<Domain.Entities.Workout>
+public record WorkoutVm : IMapFrom<Domain.Entities.Workout>
 {
-    public int  Id { get; set; }
+    public int  Id { get; init; }
     
-    public DateTime Date { get; set; }
+    public DateTime Date { get; init; }
 
-    public string  Name { get; set; }
+    public string  Name { get; init; }
 
     public void Mapping(Profile profile)
     {

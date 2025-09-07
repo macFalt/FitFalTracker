@@ -2,7 +2,7 @@ using MediatR;
 
 namespace FitFalTracker.Application.Exercise.Queries.GetAllExercise;
 
-public class GetAllExerciseForWorkoutQuery : IRequest<AllExerciseForWorkoutVm>
+public record GetAllExerciseForWorkoutQuery : IRequest<AllExerciseForWorkoutVm>
 {
-    public int WorkoutId { get; set; }
+    public int WorkoutId { get; init; }
 }

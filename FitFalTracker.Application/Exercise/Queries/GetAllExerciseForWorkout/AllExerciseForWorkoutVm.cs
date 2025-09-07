@@ -2,7 +2,7 @@ using FitFalTracker.Application.Exercise.Queries.GetExercise;
 
 namespace FitFalTracker.Application.Exercise.Queries.GetAllExercise;
 
-public class AllExerciseForWorkoutVm
+public record AllExerciseForWorkoutVm
 {
-    public ICollection<ExerciseVm> Exercises { get; set; }
+    public ICollection<ExerciseVm> Exercises { get; init; }
 }

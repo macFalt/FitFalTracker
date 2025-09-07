@@ -1,26 +1,31 @@
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Domain.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitFalTracker.Application.Workout.Command.DeleteWorkout;
 
-public class DeleteWorkoutCommandHandler : IRequestHandler<DeleteWorkoutCommand,bool>
+public class DeleteWorkoutCommandHandler : IRequestHandler<DeleteWorkoutCommand,Unit>
 {
     private readonly IFitFalDbContext _context;
-    
-    public async Task<bool> Handle(DeleteWorkoutCommand request, CancellationToken cancellationToken)
+
+    public DeleteWorkoutCommandHandler(IFitFalDbContext context)
     {
-        var workout= await _context.Workouts
-            .FirstOrDefaultAsync(i => i.Id == request.WorkoutId, cancellationToken);
+        _context = context;
+    }
+    
+    public async Task<Unit> Handle(DeleteWorkoutCommand request, CancellationToken cancellationToken)
+    {
+        var workout = await _context.Workouts
+            .SingleOrDefaultAsync(w=> w.Id == request.WorkoutId, cancellationToken);
+        
+        if (workout is null)
+            throw new NotFoundException(nameof(Domain.Entities.Workout),
+                    ("WorkoutId", request.WorkoutId));
 
-        if (workout == null)
-        {
-            return false;
-        }
-
-         _context.Workouts.Remove((workout));
+         _context.Workouts.Remove(workout);
          await _context.SaveChangesAsync(cancellationToken);
-         return true;
+         return Unit.Value;
         
     }
 }

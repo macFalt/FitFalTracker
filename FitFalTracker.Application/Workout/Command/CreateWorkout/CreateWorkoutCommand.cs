@@ -4,16 +4,10 @@ using MediatR;
 
 namespace FitFalTracker.Application.Workout.Command.CreateWorkout;
 
-public class CreateWorkoutCommand : IRequest<int>, IMapFrom<Domain.Entities.Workout>
+public record CreateWorkoutCommand : IRequest<int>
 {
-    public int  Id { get; set; }
+    public DateTime Date { get; init; }
+
+    public string  Name { get; init; }
     
-    public DateTime Date { get; set; }
-
-    public string  Name { get; set; }
-
-    public void Mapping(Profile profile)
-    {
-        profile.CreateMap<CreateWorkoutCommand, Domain.Entities.Workout>();
-    }
 }

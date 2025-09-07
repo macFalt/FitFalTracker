@@ -22,9 +22,13 @@ public class UpdateWorkoutCommandHandler : IRequestHandler<UpdateWorkoutCommand,
         {
             throw new KeyNotFoundException("Not Found");
         }
+        
+        if (request.Date.HasValue)
+            workout.Date = request.Date.Value;
+        if (request.Name != null)
+            workout.Name = request.Name;
 
-        _context.Workouts.Update(workout);
-        _context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
         return _mapper.Map<UpdateWorkoutDTO>(workout);
     }
 }

@@ -1,5 +1,7 @@
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Domain.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,8 +21,17 @@ public class GetWorkoutQueryHandler : IRequestHandler<GetWorkoutQuery, WorkoutVm
     
     public async Task<WorkoutVm> Handle(GetWorkoutQuery request, CancellationToken cancellationToken)
     {
-        var workout=await _context.Workouts.FirstOrDefaultAsync(w=>w.Id == request.WorkoutId,cancellationToken);
-        var workoutVm=_mapper.Map<WorkoutVm>(workout);
-        return workoutVm;
+
+        var workout = await _context.Workouts
+            .AsNoTracking()
+            .Where(w => w.Id == request.WorkoutId)
+            .ProjectTo<WorkoutVm>(_mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync(cancellationToken);
+
+        if (workout is null)
+            throw new NotFoundException(nameof(Domain.Entities.Workout), ("Workout", request.WorkoutId));
+
+        return workout;
+
     }
 }

@@ -3,13 +3,13 @@ using FitFalTracker.Application.Common.Mappings;
 
 namespace FitFalTracker.Application.Exercise.Queries.GetExercise;
 
-public class ExerciseVm : IMapFrom<Domain.Entities.Exercise>
+public record ExerciseVm : IMapFrom<Domain.Entities.Exercise>
 {
-    public int Id { get; set; }
-    public string Notes { get; set; }
-    public int Order { get; set; }
-    public int WorkoutId { get; set; }
-    public int ExerciseDefinitionId { get; set; }
+    public int Id { get; init; }
+    public string Notes { get; init; }
+    public int Order { get; init; }
+    public int WorkoutId { get; init; }
+    public int ExerciseDefinitionId { get; init; }
 
     public void Mapping(Profile profile)
     {

@@ -7,19 +7,21 @@ namespace FitFalTracker.Application.Workout.Command.CreateWorkout;
 
 public class CreateWorkoutCommandHandler : IRequestHandler<CreateWorkoutCommand, int>
 {
-    private readonly IMapper _mapper;
     private readonly IFitFalDbContext _context;
 
-    public CreateWorkoutCommandHandler(IFitFalDbContext context, IMapper mapper)
+    public CreateWorkoutCommandHandler(IFitFalDbContext context)
     {
         _context = context;
-        _mapper = mapper;
     }
     
     public async Task<int> Handle(CreateWorkoutCommand request, CancellationToken cancellationToken)
     {
-        var workout=_mapper.Map<Domain.Entities.Workout>(request);
-        workout.Date = request.Date;
+        var workout = new Domain.Entities.Workout()
+        {
+            Name = request.Name,
+            Date = request.Date,
+        };
+        
         await _context.Workouts.AddAsync(workout, cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
         return workout.Id;
