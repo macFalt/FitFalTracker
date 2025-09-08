@@ -23,14 +23,14 @@ public class AddExerciseToWorkoutCommandHandler : IRequestHandler<AddExerciseToW
             .AsNoTracking()
             .AnyAsync(w=>w.Id==request.WorkoutId,cancellationToken);
         if (!workout)
-            throw new NotFoundException(nameof(Domain.Entities.Workout), ("Workout",request.WorkoutId));
+            throw new NotFoundException(nameof(Domain.Entities.Workout), ("WorkoutId",request.WorkoutId));
 
         var exerciseDef=await _context.ExerciseDefinitions
             .AsNoTracking()
             .AnyAsync(ed=>ed.Id==request.ExerciseDefinitionId,cancellationToken);
         
         if (!exerciseDef)
-            throw new NotFoundException(nameof(Domain.Entities.ExerciseDefinition), ("ExerciseDefinition",request.ExerciseDefinitionId));
+            throw new NotFoundException(nameof(Domain.Entities.ExerciseDefinition), ("ExerciseDefinitionId",request.ExerciseDefinitionId));
         
         
         var exercise = new Domain.Entities.Exercise()

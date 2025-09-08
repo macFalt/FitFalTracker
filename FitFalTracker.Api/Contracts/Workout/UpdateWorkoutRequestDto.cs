@@ -1,9 +1,7 @@
 namespace FitFalTracker.Contracts.Workout;
 
-public record AddWorkoutRequestDto
+public record UpdateWorkoutRequestDto()
 {
-    public DateTime? Date { get; init; }
-
     public string?  Name { get; init; }
-
+    public DateTime? Date { get; init; }
 }

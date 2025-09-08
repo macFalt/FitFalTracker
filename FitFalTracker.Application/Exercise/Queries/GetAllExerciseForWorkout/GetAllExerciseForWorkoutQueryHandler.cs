@@ -27,7 +27,7 @@ public class GetAllExerciseForWorkoutQueryHandler : IRequestHandler<GetAllExerci
         
         if (!workout)
             throw new NotFoundException(nameof(Domain.Entities.Workout),
-                ("Workout", request.WorkoutId));
+                ("WorkoutId", request.WorkoutId));
         
         var exercise=await _context.Exercises.Where(e=>e.WorkoutId==request.WorkoutId)
             .AsNoTracking()

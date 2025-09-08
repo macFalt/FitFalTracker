@@ -7,7 +7,7 @@ namespace FitFalTracker.Application.Exercise.Command.AddExerciseToWorkout;
 
 public record AddExerciseToWorkoutCommand : IRequest<int>
 {
-    public string Notes { get; init; }
+    public string? Notes { get; init; }
     public int Order { get; init; }
     public int WorkoutId { get; init; }
     public int ExerciseDefinitionId { get; init; }

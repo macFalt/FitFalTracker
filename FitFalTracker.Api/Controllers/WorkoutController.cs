@@ -1,4 +1,6 @@
 using FitFalTracker.Application.Exercise.Command.AddExerciseToWorkout;
+using FitFalTracker.Application.Exercise.Command.DeleteExerciseFromWorkout;
+using FitFalTracker.Application.Exercise.Command.UpdateExercise;
 using FitFalTracker.Application.Exercise.Queries.GetAllExercise;
 using FitFalTracker.Application.Exercise.Queries.GetExercise;
 using FitFalTracker.Application.Workout.Command.CreateWorkout;
@@ -69,19 +71,17 @@ public class WorkoutController : BaseController
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult> UpdateWorkout(int id,[FromBody] UpdateWorkoutCommand command)
+    public async Task<ActionResult> UpdateWorkout(int id,[FromBody] UpdateWorkoutRequestDto command, CancellationToken cancellationToken)
     {
-        try
+        var uw = new UpdateWorkoutCommand()
         {
-            var update= await Mediator.Send(new UpdateWorkoutCommand(id,command.Date,command.Name));
-            return NoContent();
-
-        }
-        catch (KeyNotFoundException)
-        {
-            return NotFound();
-        }
+            Id = id,
+            Name = command.Name,
+            Date = command.Date
+        };
         
+        await Mediator.Send(uw,cancellationToken);
+        return NoContent();
     }
     
     
@@ -90,25 +90,25 @@ public class WorkoutController : BaseController
     [HttpGet("{id}/exercise/{exerciseId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ExerciseVm>> GetExerciseById(int id, int exerciseId)
+    public async Task<ActionResult<ExerciseVm>> GetExerciseById(int id, int exerciseId,CancellationToken cancellationToken)
     {
-        var exercise= await Mediator.Send(new GetExerciseQuery(){ExerciseId = exerciseId, WorkoutId = id });
+        var exercise= await Mediator.Send(new GetExerciseQuery(){ExerciseId = exerciseId, WorkoutId = id }, cancellationToken);
         return Ok(exercise);
     }
 
-    [HttpGet("{id}/exercise/")]
+    [HttpGet("{id}/exercises")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<AllExerciseForWorkoutVm>> GetAllExerciseByWorkoutId(int id)
+    public async Task<ActionResult<AllExerciseForWorkoutVm>> GetAllExerciseByWorkoutId(int id,CancellationToken cancellationToken)
     {
-        var exercises= await Mediator.Send(new GetAllExerciseForWorkoutQuery(){WorkoutId = id});
+        var exercises= await Mediator.Send(new GetAllExerciseForWorkoutQuery(){WorkoutId = id},cancellationToken);
         return Ok(exercises);
     }
 
     [HttpPost("{workoutId}/exercise")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<CreatedIdDto>> AddExercise(int workoutId, AddExerciseRequestDto request)
+    public async Task<ActionResult<CreatedIdDto>> AddExercise(int workoutId, [FromBody]AddExerciseRequestDto request, CancellationToken cancellationToken)
     {
         var cmd = new AddExerciseToWorkoutCommand()
         {
@@ -123,9 +123,41 @@ public class WorkoutController : BaseController
             nameof(GetExerciseById),
             new { id = workoutId, exerciseId = created },
             new CreatedIdDto{Id = created});
+    }
 
+    [HttpDelete("{workoutId}/exercise/{exerciseId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> DeleteExerciseFromWorkout(int workoutId, int exerciseId,
+        CancellationToken cancellationToken)
+    {
+        await Mediator.Send(new DeleteExerciseFromWorkoutCommand() { WorkoutId = workoutId,ExerciseId=exerciseId},cancellationToken);
+        return NoContent();
+    }
+
+    [HttpPatch("{workoutId}/exercise/{exerciseId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> UpdateExercise(int workoutId, int exerciseId,
+        [FromBody] UpdateExerciseRequestDto request, CancellationToken cancellationToken)
+    {
+        var exercise = new UpdateExerciseCommand()
+        {
+            Notes = request.Notes,
+            Order = request.Order,
+            ExerciseDefinitionId = request.ExerciseDefinitionId,
+            WorkoutId = workoutId,
+            ExerciseId = exerciseId
+
+        };
+        
+        await Mediator.Send(exercise,cancellationToken);
+        return NoContent();
 
     }
+    
+    
         
         
 

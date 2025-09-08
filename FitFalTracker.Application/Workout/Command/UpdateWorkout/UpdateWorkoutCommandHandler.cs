@@ -1,26 +1,25 @@
 using AutoMapper;
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Domain.Exceptions;
 using MediatR;
 
 namespace FitFalTracker.Application.Workout.Command.UpdateWorkout;
 
-public class UpdateWorkoutCommandHandler : IRequestHandler<UpdateWorkoutCommand, UpdateWorkoutDTO>
+public class UpdateWorkoutCommandHandler : IRequestHandler<UpdateWorkoutCommand, Unit>
 {
     private readonly IFitFalDbContext _context;
-    private readonly IMapper _mapper;
 
-    public UpdateWorkoutCommandHandler(IFitFalDbContext context,IMapper mapper)
+    public UpdateWorkoutCommandHandler(IFitFalDbContext context)
     {
         _context = context;
-        _mapper = mapper;
     }
     
-    public async Task<UpdateWorkoutDTO> Handle(UpdateWorkoutCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(UpdateWorkoutCommand request, CancellationToken cancellationToken)
     {
-        var workout = await _context.Workouts.FindAsync(request.Id,cancellationToken);
+        var workout = await _context.Workouts.FindAsync(new object[]{request.Id}, cancellationToken);
         if (workout == null)
         {
-            throw new KeyNotFoundException("Not Found");
+            throw new NotFoundException(nameof(Domain.Entities.Workout), ("WorkoutId", request.Id));
         }
         
         if (request.Date.HasValue)
@@ -29,6 +28,6 @@ public class UpdateWorkoutCommandHandler : IRequestHandler<UpdateWorkoutCommand,
             workout.Name = request.Name;
 
         await _context.SaveChangesAsync(cancellationToken);
-        return _mapper.Map<UpdateWorkoutDTO>(workout);
+        return Unit.Value;
     }
 }
