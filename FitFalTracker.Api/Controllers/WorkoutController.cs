@@ -3,6 +3,8 @@ using FitFalTracker.Application.Exercise.Command.DeleteExerciseFromWorkout;
 using FitFalTracker.Application.Exercise.Command.UpdateExercise;
 using FitFalTracker.Application.Exercise.Queries.GetAllExercise;
 using FitFalTracker.Application.Exercise.Queries.GetExercise;
+using FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
+using FitFalTracker.Application.Exercises.Command.DeleteExerciseDetail;
 using FitFalTracker.Application.Exercises.Queries.GetAllExerciseDetails;
 using FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 using FitFalTracker.Application.Workout.Command.CreateWorkout;
@@ -11,12 +13,12 @@ using FitFalTracker.Application.Workout.Command.UpdateWorkout;
 using FitFalTracker.Application.Workout.Queries.GetAllWorkout;
 using FitFalTracker.Application.Workout.Queries.GetWorkout;
 using FitFalTracker.Contracts.Exercise;
+using FitFalTracker.Contracts.ExerciseDetail;
 using FitFalTracker.Contracts.Workout;
 using FitFalTracker.Domain.Entities;
 using FitFalTracker.Persistance;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CreatedIdDto = FitFalTracker.Contracts.Exercise.CreatedIdDto;
 
 namespace FitFalTracker;
 
@@ -45,7 +47,7 @@ public class WorkoutController : BaseController
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<CreatedIdDto>> CreateWorkout([FromBody] AddWorkoutRequestDto request)
+    public async Task<ActionResult<CreatedExerciseIdDto>> CreateWorkout([FromBody] AddWorkoutRequestDto request)
     {
         var cmd = new CreateWorkoutCommand()
         {
@@ -57,7 +59,7 @@ public class WorkoutController : BaseController
         return CreatedAtAction(
             nameof(GetWorkoutById),
             new {id=workout},
-            new CreatedIdDto { Id = workout });
+            new CreatedExerciseIdDto { Id = workout });
     }
 
     [HttpDelete("{id}")]
@@ -110,7 +112,7 @@ public class WorkoutController : BaseController
     [HttpPost("{workoutId}/exercise")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<CreatedIdDto>> AddExercise(int workoutId, [FromBody]AddExerciseRequestDto request, CancellationToken cancellationToken)
+    public async Task<ActionResult<CreatedExerciseIdDto>> AddExercise(int workoutId, [FromBody]AddExerciseRequestDto request, CancellationToken cancellationToken)
     {
         var cmd = new AddExerciseToWorkoutCommand()
         {
@@ -124,7 +126,7 @@ public class WorkoutController : BaseController
         return CreatedAtAction(
             nameof(GetExerciseById),
             new { id = workoutId, exerciseId = created },
-            new CreatedIdDto{Id = created});
+            new CreatedExerciseIdDto{Id = created});
     }
 
     [HttpDelete("{workoutId}/exercise/{exerciseId}")]
@@ -184,8 +186,42 @@ public class WorkoutController : BaseController
                 { ExerciseId = exerciseId },cancellationToken);
         return Ok(exerciseDetails);
     }
-    
-    [HttpPost]
+
+    [HttpPost("{workoutId}/exercises/{exerciseId}/exerciseDetails")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<CreateExerciseDetailIdRequestDto>> AddExerciseDetails
+    (int workoutId, int exerciseId,
+        [FromBody] AddExerciseDetailRequestDto request, CancellationToken cancellationToken)
+    {
+        var exerciseD = new CreateExerciseDetailCommand()
+        {
+            ExerciseId = exerciseId,
+            Reps = request.Reps,
+            Rir = request.Rir,
+            Rpe = request.Rpe,
+            SetNumber = request.SetNumber,
+            Tempo = request.Tempo,
+            Weight = request.Weight
+        };
+        
+        var createdId= await Mediator.Send(exerciseD, cancellationToken);
+        
+        return CreatedAtAction(
+            nameof(GetExerciseDetailFromExerciseById),
+            new { workoutId, exerciseId, id = createdId },
+            new CreatedIdDto { Id = createdId });
+    }
+
+    [HttpDelete("{workoutId}/exercises/{exerciseId}/details/{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> DeleteExerciseDetailFromExerciseById(int id,int workoutId,int exerciseId,
+        CancellationToken cancellationToken)
+    {
+        await Mediator.Send(new DeleteExerciseDetailCommand(){ExerciseDetailId = id, ExerciseId = exerciseId},cancellationToken);
+        return NoContent();
+    }
     
     
         

@@ -5,7 +5,7 @@ using MediatR;
 
 namespace FitFalTracker.Application.Exercises.Command.DeleteExerciseDetail;
 
-public class DeleteExerciseDetailCommand : IRequest<bool>
+public record DeleteExerciseDetailCommand : IRequest<Unit>
 {
     public int ExerciseDetailId { get; set; }
     public int ExerciseId  { get; set; }

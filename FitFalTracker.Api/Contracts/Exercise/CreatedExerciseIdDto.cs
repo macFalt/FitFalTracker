@@ -1,6 +1,6 @@
 namespace FitFalTracker.Contracts.Exercise;
 
-public record CreatedIdDto
+public record CreatedExerciseIdDto
 {
     public int  Id { get; init; }
 }

@@ -11,12 +11,10 @@ namespace FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
 public class CreateExerciseDetailCommandHandler : IRequestHandler<CreateExerciseDetailCommand, int>
 {
     private readonly IFitFalDbContext _context;
-    private readonly IMapper _mapper;
 
-    public CreateExerciseDetailCommandHandler(IFitFalDbContext context, IMapper mapper)
+    public CreateExerciseDetailCommandHandler(IFitFalDbContext context)
     {
         _context = context;
-        _mapper = mapper;
     }
 
 

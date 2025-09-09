@@ -1,10 +1,11 @@
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Domain.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitFalTracker.Application.Exercises.Command.DeleteExerciseDetail;
 
-public class DeleteExerciseDetailCommandHandler : IRequestHandler<DeleteExerciseDetailCommand,bool>
+public class DeleteExerciseDetailCommandHandler : IRequestHandler<DeleteExerciseDetailCommand,Unit>
 {
     private readonly IFitFalDbContext _context;
 
@@ -14,18 +15,20 @@ public class DeleteExerciseDetailCommandHandler : IRequestHandler<DeleteExercise
     }
 
 
-    public async Task<bool> Handle(DeleteExerciseDetailCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(DeleteExerciseDetailCommand request, CancellationToken cancellationToken)
     {
-        var exerciseDetail = await _context.ExerciseDetails.FirstOrDefaultAsync(e => e.Id == request.ExerciseDetailId
-            && e.ExerciseId == request.ExerciseId, cancellationToken: cancellationToken);
-        if (exerciseDetail == null)
-        {
-            return false;
-        }
-
+        var exerciseDetail = await _context.ExerciseDetails
+            .FindAsync(new object[] { request.ExerciseDetailId }, cancellationToken);
+        
+        if (exerciseDetail is null)
+            throw new NotFoundException(nameof(Domain.Entities.ExerciseDetail), 
+                ("ExerciseDetailId",request.ExerciseDetailId));
+        
         _context.ExerciseDetails.Remove(exerciseDetail);
         await _context.SaveChangesAsync(cancellationToken);
+        return Unit.Value;
+        
 
-        return true;
+        
     }
 }
