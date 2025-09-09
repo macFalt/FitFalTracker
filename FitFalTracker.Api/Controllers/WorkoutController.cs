@@ -3,6 +3,8 @@ using FitFalTracker.Application.Exercise.Command.DeleteExerciseFromWorkout;
 using FitFalTracker.Application.Exercise.Command.UpdateExercise;
 using FitFalTracker.Application.Exercise.Queries.GetAllExercise;
 using FitFalTracker.Application.Exercise.Queries.GetExercise;
+using FitFalTracker.Application.Exercises.Queries.GetAllExerciseDetails;
+using FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 using FitFalTracker.Application.Workout.Command.CreateWorkout;
 using FitFalTracker.Application.Workout.Command.DeleteWorkout;
 using FitFalTracker.Application.Workout.Command.UpdateWorkout;
@@ -156,6 +158,34 @@ public class WorkoutController : BaseController
         return NoContent();
 
     }
+    
+    //************************ExerciseDetail******************
+
+    [HttpGet("{workoutId}/exercise/{exerciseId}/exercisedetail/{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ExerciseDetailVm>> GetExerciseDetailFromExerciseById
+    (int workoutId, int exerciseId,int id, CancellationToken cancellationToken)
+    {
+        var exerciseDetail = await Mediator.Send(new GetExerciseDetailQuery()
+            { ExerciseDetailId = id, ExerciseId = exerciseId },cancellationToken);
+
+        return Ok(exerciseDetail);
+    }
+
+    [HttpGet("{workoutId}/exercise/exerciseDetails")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<AllExerciseDetailForExerciseVm>> GetAllExerciseDetailFromExercise
+        (int exerciseId, CancellationToken cancellationToken)
+    {
+        var exerciseDetails =
+            await Mediator.Send(new GetAllExerciseDetailForExerciseQuery() 
+                { ExerciseId = exerciseId },cancellationToken);
+        return Ok(exerciseDetails);
+    }
+    
+    [HttpPost]
     
     
         

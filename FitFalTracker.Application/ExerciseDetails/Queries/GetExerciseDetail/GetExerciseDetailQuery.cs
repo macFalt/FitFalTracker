@@ -2,7 +2,8 @@ using MediatR;
 
 namespace FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 
-public class GetExerciseDetailQuery : IRequest<ExerciseDetailVm>
+public record GetExerciseDetailQuery : IRequest<ExerciseDetailVm>
 {
-    public int ExerciseId { get; set; }
+    public int ExerciseId { get; init; }
+    public int ExerciseDetailId { get; init; }
 }

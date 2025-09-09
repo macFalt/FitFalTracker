@@ -5,15 +5,15 @@ using FitFalTracker.Domain.ValueObjects;
 
 namespace FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 
-public class ExerciseDetailVm : IMapFrom<ExerciseDetail>
+public record ExerciseDetailVm : IMapFrom<ExerciseDetail>
 {
-    public int Id { get; set; }
-    public int Reps { get; set; }
-    public int SetNumber { get; set; }
-    public int? Rir { get; set; }
-    public int? Rpe { get; set; }
-    public string Tempo { get; set; }
-    public Weight Weight { get; set; }
+    public int Id { get; init; }
+    public int Reps { get; init; }
+    public int SetNumber { get; init; }
+    public int? Rir { get; init; }
+    public int? Rpe { get; init; }
+    public string? Tempo { get; init; }
+    public Weight Weight { get; init; }
 
     public void Mapping(Profile profile)
     {

@@ -3,9 +3,9 @@ using FitFalTracker.Domain.Entities;
 
 namespace FitFalTracker.Application.Exercises.Queries.GetAllExerciseDetails;
 
-public class AllExerciseDetailForExerciseVm
+public record AllExerciseDetailForExerciseVm
 {
-    public ICollection<ExerciseDetailVm> ExerciseDetails { get; set; }
+    public ICollection<ExerciseDetailVm> ExerciseDetails { get; init; }
     
 
 }

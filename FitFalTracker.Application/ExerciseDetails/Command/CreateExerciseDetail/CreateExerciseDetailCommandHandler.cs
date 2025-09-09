@@ -2,7 +2,9 @@ using AutoMapper;
 using FitFalTracker.Application.Common.Interfaces;
 using FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 using FitFalTracker.Domain.Entities;
+using FitFalTracker.Domain.Exceptions;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
 
@@ -20,10 +22,29 @@ public class CreateExerciseDetailCommandHandler : IRequestHandler<CreateExercise
 
     public async Task<int> Handle(CreateExerciseDetailCommand request, CancellationToken cancellationToken)
     {
-        var exerciseDetail = _mapper.Map<ExerciseDetail>(request);
+        var exerciseExists = await _context.Exercises
+            .AsNoTracking()
+            .AnyAsync(e => e.Id == request.ExerciseId,cancellationToken);
+
+        if (!exerciseExists)
+            throw new NotFoundException(nameof(Domain.Entities.Exercise),
+                ("ExerciseId", request.ExerciseId));
+
+        var exerciseDetail = new ExerciseDetail()
+        {
+            ExerciseId = request.ExerciseId,
+            Reps = request.Reps,
+            SetNumber = request.SetNumber,
+            Rir = request.Rir,
+            Rpe = request.Rpe,
+            Tempo = request.Tempo,
+            Weight = request.Weight
+        };
+
         _context.ExerciseDetails.Add(exerciseDetail);
         await _context.SaveChangesAsync(cancellationToken);
         return exerciseDetail.Id;
+
     }
     
 }

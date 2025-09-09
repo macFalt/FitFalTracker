@@ -21,7 +21,8 @@ public class GetAllExerciseDetailForExerciseQueryHandler : IRequestHandler<GetAl
     
     public async Task<AllExerciseDetailForExerciseVm> Handle(GetAllExerciseDetailForExerciseQuery request, CancellationToken cancellationToken)
     {
-        var allExercises =await _context.ExerciseDetails.Where(id=>id.ExerciseId == request.ExerciseId)
+        var allExercises =await _context.ExerciseDetails
+            .Where(id=>id.ExerciseId == request.ExerciseId)
             .AsNoTracking()
             .OrderBy(i=>i.Id)
             .ProjectTo<ExerciseDetailVm>(_mapper.ConfigurationProvider)
