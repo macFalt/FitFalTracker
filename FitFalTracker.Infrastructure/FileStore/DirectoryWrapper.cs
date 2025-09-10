@@ -1,6 +1,6 @@
 using FitFalTracker.Application.Common.Interfaces;
 
-namespace FitFalTracker.Infrestructure.FileStore;
+namespace FitFalTracker.Infrastructure.FileStore;
 
 public class DirectoryWrapper : IDirectoryWrapper
 {

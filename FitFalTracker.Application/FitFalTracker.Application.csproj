@@ -19,4 +19,8 @@
       <ProjectReference Include="..\FitFalTracker.Domain\FitFalTracker.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ExerciseDefinition\Command\" />
+    </ItemGroup>
+
 </Project>

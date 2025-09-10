@@ -1,9 +1,9 @@
 using FitFalTracker.Application.Common.Interfaces;
-using FitFalTracker.Infrestructure.FileStore;
+using FitFalTracker.Infrastructure.FileStore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
-namespace FitFalTracker.Infrestructure;
+namespace FitFalTracker.Infrastructure;
 
 public static class DependencyInjection
 {

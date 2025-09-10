@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFalTracker.Common", "Fit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFalTracker.Domain", "FitFalTracker.Domain\FitFalTracker.Domain.csproj", "{8E28E710-0F1C-4189-8644-72839C111013}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFalTracker.Infrestructure", "FitFalTracker.Infrestructure\FitFalTracker.Infrestructure.csproj", "{E70F2E08-FE2E-4EC1-940D-B5CE22995F4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFalTracker.Infrastructure", "FitFalTracker.Infrastructure\FitFalTracker.Infrastructure.csproj", "{E70F2E08-FE2E-4EC1-940D-B5CE22995F4A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFalTracker.Persistance", "FitFalTracker.Persistance\FitFalTracker.Persistance.csproj", "{950CC33C-881F-4090-BE90-81007F309E4B}"
 EndProject
