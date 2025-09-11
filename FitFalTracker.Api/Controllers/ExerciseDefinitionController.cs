@@ -1,6 +1,8 @@
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Application.ExerciseDefinition.Command.AddNewExerciseDefinition;
 using FitFalTracker.Application.ExerciseDefinition.Queries;
 using FitFalTracker.Application.ExerciseDefinition.Queries.GetAllExercisesDef;
+using FitFalTracker.Contracts.ExerciseDefinition;
 using FitFalTracker.Domain.Entities;
 using FitFalTracker.Persistance;
 using MediatR;
@@ -17,7 +19,7 @@ public class ExerciseDefinitionController : BaseController
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ExerciseDefinitionVm>> GetExerciseDefinition(int id,CancellationToken cancellationToken)
+    public async Task<ActionResult<ExerciseDefinitionVm>> GetExerciseDefinitionById(int id,CancellationToken cancellationToken)
     {
         var exerciseDef = await Mediator.Send(new GetExerciseDefByIdQuery() { ExerciseDefinitionId = id }, cancellationToken);
         return Ok(exerciseDef);
@@ -31,6 +33,26 @@ public class ExerciseDefinitionController : BaseController
         var exercisesDef = await Mediator.Send(new GetAllExerciseDefQuery(),cancellationToken);
         return Ok(exercisesDef);
     }
+
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<CreateExerciseDefinitionIdDto>> AddExerciseDefinition(
+        [FromBody] AddExerciseDefinitionRequestDto request, CancellationToken cancellationToken)
+    {
+        var cmd = new AddNewExerciseDefinitionCommand()
+        {
+            Name = request.Name,
+            Description = request.Description,
+            Equipment = request.Equipment,
+            MuscleGroup = request.MuscleGroup
+        };
+        var exerciseDefId=await Mediator.Send(cmd, cancellationToken);
+        return CreatedAtAction(
+            nameof(GetExerciseDefinitionById),
+            new {id=exerciseDefId},
+            new CreateExerciseDefinitionIdDto() { Id = exerciseDefId });    }
+    
     
     
     

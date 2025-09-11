@@ -6,7 +6,7 @@ using MediatR;
 
 namespace FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
 
-public record CreateExerciseDetailCommand : IRequest<int>, IMapFrom<ExerciseDetail>
+public record CreateExerciseDetailCommand : IRequest<int>
 {
 
     public int Reps { get; init; }
@@ -17,9 +17,6 @@ public record CreateExerciseDetailCommand : IRequest<int>, IMapFrom<ExerciseDeta
     public Weight? Weight { get; init; }
     public int ExerciseId { get; init; }
 
-    public void Mapping(Profile profile)
-    {
-        profile.CreateMap<CreateExerciseDetailCommand,ExerciseDetail>();
-    }
+
 }
 
