@@ -1,5 +1,7 @@
 using FitFalTracker.Application.Common.Interfaces;
 using FitFalTracker.Application.ExerciseDefinition.Command.AddNewExerciseDefinition;
+using FitFalTracker.Application.ExerciseDefinition.Command.DeleteExerciseDefinition;
+using FitFalTracker.Application.ExerciseDefinition.Command.UpdateExerciseDefinition;
 using FitFalTracker.Application.ExerciseDefinition.Queries;
 using FitFalTracker.Application.ExerciseDefinition.Queries.GetAllExercisesDef;
 using FitFalTracker.Contracts.ExerciseDefinition;
@@ -52,8 +54,33 @@ public class ExerciseDefinitionController : BaseController
             nameof(GetExerciseDefinitionById),
             new {id=exerciseDefId},
             new CreateExerciseDefinitionIdDto() { Id = exerciseDefId });    }
-    
-    
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> DeleteExerciseDefinition(int id, CancellationToken cancellationToken)
+    {
+        await Mediator.Send(new DeleteExerciseDefenitionCommand(){ExerciseDefinitionId = id}, cancellationToken);
+        return NoContent();
+    }
+
+    [HttpPatch("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> UpdateExerciseDefinition(int id,
+        [FromBody] UpdateExerciseDefinitionRequestDto request, CancellationToken cancellationToken)
+    {
+        var cmd = new UpdateExerciseDefinitionCommand()
+        {
+            ExerciseDefinitionId = id,
+            Description = request.Description,
+            MuscleGroup = request.MuscleGroup,
+            Equipment = request.Equipment,
+            Name = request.Name
+        };
+        await Mediator.Send(cmd, cancellationToken);
+        return NoContent();
+    }
     
     
 

@@ -16,7 +16,7 @@ public class ExerciseDefinitionVm : IMapFrom<Domain.Entities.ExerciseDefinition>
     
     public EquipmentEnum Equipment { get; init; }
 
-    public void Mapper(Profile profile)
+    public void Mapping(Profile profile)
     {
         profile.CreateMap<Domain.Entities.ExerciseDefinition, ExerciseDefinitionVm>();
         

@@ -1,9 +1,12 @@
 using FitFalTracker.Domain.Enums;
+using MediatR;
 
-namespace FitFalTracker.Contracts.ExerciseDefinition;
+namespace FitFalTracker.Application.ExerciseDefinition.Command.UpdateExerciseDefinition;
 
-public record UpdateExerciseDefinitionRequestDto
+public record UpdateExerciseDefinitionCommand : IRequest<Unit>
 {
+    public int ExerciseDefinitionId { get; set; }
+    
     public string Name { get; init; }
 
     public string Description { get; init; }

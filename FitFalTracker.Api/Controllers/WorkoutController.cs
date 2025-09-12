@@ -3,6 +3,7 @@ using FitFalTracker.Application.Exercise.Command.DeleteExerciseFromWorkout;
 using FitFalTracker.Application.Exercise.Command.UpdateExercise;
 using FitFalTracker.Application.Exercise.Queries.GetAllExercise;
 using FitFalTracker.Application.Exercise.Queries.GetExercise;
+using FitFalTracker.Application.ExerciseDetails.Command.UpdateExerciseDetail;
 using FitFalTracker.Application.Exercises.Command.CreateExerciseDetail;
 using FitFalTracker.Application.Exercises.Command.DeleteExerciseDetail;
 using FitFalTracker.Application.Exercises.Queries.GetAllExerciseDetails;
@@ -220,6 +221,27 @@ public class WorkoutController : BaseController
         CancellationToken cancellationToken)
     {
         await Mediator.Send(new DeleteExerciseDetailCommand(){ExerciseDetailId = id, ExerciseId = exerciseId},cancellationToken);
+        return NoContent();
+    }
+
+    [HttpPatch("{workoutId}/exercises/{exerciseId}/exerciseDetails/{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> UpdateExerciseDetailFromExercise(int id,int workoutId, int exerciseId,
+        [FromBody] UpdateExerciseDetailRequestDto request, CancellationToken cancellationToken)
+    {
+        var exerciseDetail = new UpdateExerciseDetailsCommand()
+        {
+            Id = id,
+            Reps = request.Reps,
+            Rir = request.Rir,
+            Rpe = request.Rpe,
+            SetNumber = request.SetNumber,
+            Tempo = request.Tempo,
+            Weight = request.Weight
+        };
+        await Mediator.Send(exerciseDetail, cancellationToken);
         return NoContent();
     }
     
