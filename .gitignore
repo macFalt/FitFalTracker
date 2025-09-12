@@ -1,0 +1,16 @@
+#Build 
+**/bin/
+**/obj/
+
+#Rider / IntelliJ
+.idea/
+
+# VS
+.vs/
+
+# User-specific files
+*.user
+*.suo
+
+#system
+.DS_Store
