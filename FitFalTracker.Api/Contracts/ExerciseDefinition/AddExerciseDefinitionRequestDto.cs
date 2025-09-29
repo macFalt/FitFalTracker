@@ -8,7 +8,7 @@ public record AddExerciseDefinitionRequestDto
 
     public string Description { get; init; }
 
-    public string MuscleGroup { get; init; }
+    public MuscleGroupEnum MuscleGroup { get; init; }
     
     public EquipmentEnum Equipment { get; init; }
 }

@@ -1,5 +1,6 @@
 using FitFalTracker.Application;
 using FitFalTracker.Persistance;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -36,7 +37,7 @@ app.UseExceptionHandler(appErr =>
         var feature = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>();
         var ex = feature?.Error;
 
-        if (ex is FitFalTracker.Domain.Exceptions.NotFoundException nf)
+        if (ex is FitFalTracker.Application.Exceptions.NotFoundException nf)
         {
             context.Response.StatusCode = StatusCodes.Status404NotFound;
             await context.Response.WriteAsJsonAsync(new ProblemDetails
@@ -46,7 +47,10 @@ app.UseExceptionHandler(appErr =>
                 Detail = nf.Message
             });
             return;
+            
         }
+
+        
 
         // fallback 500
         context.Response.StatusCode = StatusCodes.Status500InternalServerError;

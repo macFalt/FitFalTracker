@@ -1,6 +1,7 @@
 using System.Reflection;
 using FitFalTracker.Application.Common.Behaviours;
 using FitFalTracker.Application.Common.Interfaces;
+using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +15,8 @@ public static class DependancyInjection
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IRequestPreProcessor<>), typeof(LoggingBehaviours<>));
-        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviours<,>));
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         return services;
     }
 }

@@ -4,9 +4,8 @@ namespace FitFalTracker.Contracts.ExerciseDetail;
 
 public record UpdateExerciseDetailRequestDto
 {
-    public int Id { get; set; }
-    public int Reps { get; init; }
-    public int SetNumber { get; init; }
+    public int? Reps { get; init; }
+    public int? SetNumber { get; init; }
     public int? Rir { get; init; }
     public int? Rpe { get; init; }
     public string? Tempo { get; init; }

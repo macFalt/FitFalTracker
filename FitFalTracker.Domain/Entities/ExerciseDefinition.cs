@@ -11,7 +11,7 @@ public class ExerciseDefinition
 
     public string Description { get; set; }
 
-    public string MuscleGroup { get; set; }
+    public MuscleGroupEnum MuscleGroup { get; set; }
     public EquipmentEnum Equipment { get; set; }
     
     [JsonIgnore] public ICollection<Exercise> Exercises { get; set; } = new List<Exercise>();

@@ -1,5 +1,6 @@
 using AutoMapper;
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Application.Exceptions;
 using FitFalTracker.Domain.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

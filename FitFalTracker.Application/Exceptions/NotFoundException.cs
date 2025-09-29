@@ -1,4 +1,4 @@
-namespace FitFalTracker.Domain.Exceptions;
+namespace FitFalTracker.Application.Exceptions;
 
 public class NotFoundException : Exception
 {

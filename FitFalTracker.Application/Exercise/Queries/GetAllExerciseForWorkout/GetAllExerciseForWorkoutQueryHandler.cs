@@ -1,6 +1,7 @@
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Application.Exceptions;
 using FitFalTracker.Application.Exercise.Queries.GetExercise;
 using FitFalTracker.Domain.Exceptions;
 using MediatR;

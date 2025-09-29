@@ -10,9 +10,9 @@ public record AddNewExerciseDefinitionCommand : IRequest<int>
     
     public string Name { get; init; }
 
-    public string Description { get; init; }
+    public string? Description { get; init; }
 
-    public string MuscleGroup { get; init; }
+    public MuscleGroupEnum MuscleGroup { get; init; }
     
     public EquipmentEnum Equipment { get; init; }
 

@@ -1,4 +1,5 @@
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Application.Exceptions;
 using FitFalTracker.Domain.Exceptions;
 using MediatR;
 
@@ -20,10 +21,15 @@ public class UpdateExerciseDefinitionCommandHandler : IRequestHandler<UpdateExer
         if (exerciseDef == null)
             throw new NotFoundException(nameof(Domain.Entities.ExerciseDefinition),
                 ("ExerciseDefinitionID",request.ExerciseDefinitionId));
-
+        
         exerciseDef.Description = request.Description;
-        exerciseDef.MuscleGroup = request.MuscleGroup;
-        exerciseDef.Equipment = request.Equipment;
+        
+        if (request.MuscleGroup.HasValue)
+            exerciseDef.MuscleGroup = request.MuscleGroup.Value;
+        
+        if (request.Equipment.HasValue)
+            exerciseDef.Equipment = request.Equipment.Value;
+        
         exerciseDef.Name = request.Name;
         
         await _context.SaveChangesAsync(cancellationToken);

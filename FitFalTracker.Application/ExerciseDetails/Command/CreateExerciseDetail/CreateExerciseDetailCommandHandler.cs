@@ -1,5 +1,6 @@
 using AutoMapper;
 using FitFalTracker.Application.Common.Interfaces;
+using FitFalTracker.Application.Exceptions;
 using FitFalTracker.Application.Exercises.Queries.GetExerciseDetail;
 using FitFalTracker.Domain.Entities;
 using FitFalTracker.Domain.Exceptions;

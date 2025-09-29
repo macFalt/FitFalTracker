@@ -7,11 +7,11 @@ public record UpdateExerciseDefinitionCommand : IRequest<Unit>
 {
     public int ExerciseDefinitionId { get; set; }
     
-    public string Name { get; init; }
+    public string? Name { get; init; }
 
-    public string Description { get; init; }
+    public string? Description { get; init; }
 
-    public string MuscleGroup { get; init; }
+    public MuscleGroupEnum? MuscleGroup { get; init; }
     
-    public EquipmentEnum Equipment { get; init; }
+    public EquipmentEnum? Equipment { get; init; }
 }
